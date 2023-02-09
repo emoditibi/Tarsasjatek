@@ -74,12 +74,20 @@ tabla.appendChild(sordiv);
 
 function Kartyakatbelegeneral(db)
 {
-var velkartyaszam = Math.floor(Math.random()*23+1);
-var kep1 = document.createElement("img");
-kep1.src = "../kartya/"+velkartyaszam+".png";
-var velhelyszam = Math.floor(Math.random()*29+1);
-var hely = document.getElementById(velhelyszam);
-hely.appendChild(kep1);
+//Hf design
+//csináld meg h ne legyen isétlődés
+for(var i = 0; i <= db;i++)
+{
+    var velkartyaszam = Math.floor(Math.random()*23+1);
+    var kep1 = document.createElement("img");
+    kep1.src = "../kartya/"+velkartyaszam+".png";
+    var velhelyszam = Math.floor(Math.random()*29+1);
+    var hely = document.getElementById(velhelyszam);
+    hely.appendChild(kep1);
+    
+
+}
+
 }
 function Main()
 {
