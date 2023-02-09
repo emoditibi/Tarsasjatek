@@ -1,4 +1,21 @@
+/*
+var objektum = 
+{
+    szam1: 34,
+    szam2: 23,
+    id: 0,
+    ertek: "Zöldvár4",
+    Torol: Torol(),
+    szomszedok:[230,2424,2342,42]
+}
 
+function Torol()
+{
+    console.log("töröl");
+}
+console.log(objektum.szomszedok[0]);
+console.log(objektum.szam1);
+*/
 var tabla = document.createElement("div");
 var kartyaBox = document.createElement("div");
 var leftside = document.createElement("div")
@@ -19,7 +36,7 @@ function JatekterBetoltese()
     jatekter.appendChild(tabla);
     jatekter.appendChild(korBox);
     
-    tabla.innerHTML="csok";
+  
     kartyaBox.innerHTML="kartya box";
     pontBox.innerHTML="pontok";
     korBox.innerHTML="kor";
@@ -52,6 +69,16 @@ tabla.appendChild(sordiv);
 }
 
 }
+
+function Kartyakatbelegeneral(db)
+{
+  for(var i = 0; i < 30; i++)
+  {
+
+    
+
+  }
+}
 function Main()
 {
 
@@ -59,6 +86,7 @@ function Main()
     JatekterBetoltese();
     JatekterElrendezese();
     Tablageneralasa();
+    Kartyakatbelegeneral(5);
 }
 
 Main();
