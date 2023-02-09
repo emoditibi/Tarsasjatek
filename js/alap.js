@@ -52,7 +52,7 @@ function JatekterElrendezese()
 }
 function Tablageneralasa()
 {
-
+var k = 0;
 for(var i = 0; i<5; i++)
 {
     var sordiv = document.createElement("div");
@@ -60,8 +60,10 @@ for(var i = 0; i<5; i++)
     for(var j = 0; j<6; j++)
 {
     var oszlopdiv = document.createElement("div");
-    oszlopdiv.innerHTML=5*i+j+"x";
+    //oszlopdiv.innerHTML=5*i+j+"x";
     oszlopdiv.classList += " oszlopdiv";
+    oszlopdiv.id = k;
+    k++;
     sordiv.appendChild(oszlopdiv);
 
 }
@@ -72,12 +74,12 @@ tabla.appendChild(sordiv);
 
 function Kartyakatbelegeneral(db)
 {
-  for(var i = 0; i < 30; i++)
-  {
-
-    
-
-  }
+var velkartyaszam = Math.floor(Math.random()*23+1);
+var kep1 = document.createElement("img");
+kep1.src = "../kartya/"+velkartyaszam+".png";
+var velhelyszam = Math.floor(Math.random()*29+1);
+var hely = document.getElementById(velhelyszam);
+hely.appendChild(kep1);
 }
 function Main()
 {
