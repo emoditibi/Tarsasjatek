@@ -76,16 +76,21 @@ function Kartyakatbelegeneral(db)
 {
 //Hf design
 //csináld meg h ne legyen isétlődés
+var tomb = new Array();
+
 for(var i = 0; i <= db;i++)
 {
     var velkartyaszam = Math.floor(Math.random()*23+1);
     var kep1 = document.createElement("img");
     kep1.src = "../kartya/"+velkartyaszam+".png";
-    var velhelyszam = Math.floor(Math.random()*29+1);
+    var velhelyszam = Math.floor(Math.random()*30+1);
+    while(tomb.includes(velhelyszam))   
+    {
+        var velhelyszam = Math.floor(Math.random()*30+1);
+    }
     var hely = document.getElementById(velhelyszam);
+    tomb.push(velhelyszam);
     hely.appendChild(kep1);
-    
-
 }
 
 }
