@@ -91,8 +91,33 @@ for(var i = 0; i <= db;i++)
     var hely = document.getElementById(velhelyszam);
     tomb.push(velhelyszam);
     hely.appendChild(kep1);
+    //Varak(tomb);
 }
+/*
+function Varak(tomb)
+{
+    var vlista = new Array();
+    var darab = 7;
+    var szinek = ["kek","piros","zold","sarga"]
+    var i = 0;
+    while(i<darab)
+    {
+        var random = Math.floor(Math.random()*30+1);
+        var random2 = Math.floor(Math.random()*4+1);
 
+        if(!tomb.includes(random) && !vlista.includes(random))
+        {
+            vlista.push(random);
+            var kep = document.createElement("img");
+            kep.src = "../babuk/"+szinek+"/"+random2+".png";
+            var cella = document.getElementById(random);
+            cella.appendChild(kep);
+            i++
+        }
+    }
+
+}
+*/
 }
 function Main()
 {
