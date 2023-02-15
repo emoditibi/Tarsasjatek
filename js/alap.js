@@ -71,54 +71,58 @@ tabla.appendChild(sordiv);
 }
 
 }
-
 function Kartyakatbelegeneral(db)
 {
+    console.log(tomb);
 //Hf design
 //csináld meg h ne legyen isétlődés
-var tomb = new Array();
+    var tomb = new Array();
 
-for(var i = 0; i <= db;i++)
+    for(var i = 0; i < db;i++)
+    {
+        var velkartyaszam = Math.floor(Math.random()*23+1);
+        var kep1 = document.createElement("img");
+        kep1.src = "../kartya/"+velkartyaszam+".png";
+        var velhelyszam = Math.floor(Math.random()*30);
+        while(tomb.includes(velhelyszam))   
+        {
+            velhelyszam = Math.floor(Math.random()*30);
+        }
+        var hely = document.getElementById(velhelyszam);
+        tomb.push(velhelyszam);
+        hely.appendChild(kep1);
+    }
+    
+    Varak(tomb);
+    
+    console.log(tomb);
+}
+
+function Varak(tomb)
 {
-    var velkartyaszam = Math.floor(Math.random()*23+1);
+console.log(tomb);
+   var szinek = ["kek","piros","zold","sarga"]
+   for(var i = 0; i < 7; i++)
+   {
+    var velkartyaszam = Math.floor(Math.random()*4+1);
     var kep1 = document.createElement("img");
-    kep1.src = "../kartya/"+velkartyaszam+".png";
-    var velhelyszam = Math.floor(Math.random()*30+1);
+    var varak = Math.floor(Math.random()*4);
+    kep1.src = "../babuk/"+szinek[varak]+velkartyaszam+".png";
+    var velhelyszam = Math.floor(Math.random()*30);
+    
     while(tomb.includes(velhelyszam))   
     {
-        var velhelyszam = Math.floor(Math.random()*30+1);
+        velhelyszam = Math.floor(Math.random()*30);
     }
+    
     var hely = document.getElementById(velhelyszam);
     tomb.push(velhelyszam);
     hely.appendChild(kep1);
-    //Varak(tomb);
-}
-/*
-function Varak(tomb)
-{
-    var vlista = new Array();
-    var darab = 7;
-    var szinek = ["kek","piros","zold","sarga"]
-    var i = 0;
-    while(i<darab)
-    {
-        var random = Math.floor(Math.random()*30+1);
-        var random2 = Math.floor(Math.random()*4+1);
-
-        if(!tomb.includes(random) && !vlista.includes(random))
-        {
-            vlista.push(random);
-            var kep = document.createElement("img");
-            kep.src = "../babuk/"+szinek+"/"+random2+".png";
-            var cella = document.getElementById(random);
-            cella.appendChild(kep);
-            i++
-        }
-    }
+    
+   }
 
 }
-*/
-}
+
 function Main()
 {
 
@@ -126,10 +130,25 @@ function Main()
     JatekterBetoltese();
     JatekterElrendezese();
     Tablageneralasa();
-    Kartyakatbelegeneral(5);
+    Kartyakatbelegeneral(23);
 }
 
 Main();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
