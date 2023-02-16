@@ -8,7 +8,6 @@ var objektum =
     Torol: Torol(),
     szomszedok:[230,2424,2342,42]
 }
-
 function Torol()
 {
     console.log("töröl");
@@ -123,6 +122,42 @@ console.log(tomb);
 
 }
 
+function Penzgeneralasa()
+{
+var k = 0;
+for(var i = 0; i<3; i++)
+{
+    var sordiv = document.createElement("div");
+    sordiv.classList += " sordivo";
+    for(var j = 0; j<4; j++)
+{
+    var oszlopdiv = document.createElement("div");
+    //oszlopdiv.innerHTML=5*i+j+"x";
+    oszlopdiv.classList += " oszlopdivo";
+    oszlopdiv.id = k;
+    k++;
+    sordiv.appendChild(oszlopdiv);
+
+}
+pontBox.appendChild(sordiv);
+}
+}
+
+function Penzbelegeneral(db)
+{
+    var tomb = new Array();   
+    var i = 0;
+  while(i < db)
+  {
+    var kep1 = document.createElement("img");
+    kep1.src = "../Penzek/"+"1.png";
+    pontBox.appendChild(kep1);
+    tomb.push(1);
+    i++;
+  }
+  console.log(tomb);
+}
+
 function Main()
 {
 
@@ -131,35 +166,10 @@ function Main()
     JatekterElrendezese();
     Tablageneralasa();
     Kartyakatbelegeneral(23);
+    Penzgeneralasa();
+    Penzbelegeneral(4);
+
 }
 
 Main();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
