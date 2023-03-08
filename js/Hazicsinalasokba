@@ -124,7 +124,7 @@ function Tablageneralasa() {
                     {
                         kep.src="../kartya/"+kepIndex+".png";
                     }
-                    else if(kepIndex > 24)
+                    else if(kepIndex >= 24)
                     {
                         kep.src="../babuk/"+kepIndex+".png";
                     }
