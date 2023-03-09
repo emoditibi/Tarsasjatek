@@ -116,11 +116,23 @@ function Tablageneralasa() {
             oszlopdiv.addEventListener("click",function(){
                 if(kepKivalasztva && !kepElhelyezve)
                 {
+                   
                     kepElhelyezve=true;
                     kepKivalasztva=false;
                     var kep = document.createElement("img");
-                    kep.src="./kartya/"+kepIndex+".png";
+                    if(kepIndex < 24)
+                    {
+                        kep.src="../kartya/"+kepIndex+".png";
+                    }
+                    else if(kepIndex >= 24)
+                    {
+                        kep.src="../babuk/"+kepIndex+".png";
+                    }
+                    
+                    
                     this.appendChild(kep);
+                    
+                    
                 }
             })
 
@@ -132,26 +144,42 @@ function Tablageneralasa() {
 
 }
 function potHelyGeneralas(){
-    var kep =document.createElement("img");
-    kep.src="./kartya/1.png";
-    kep.style.width="200px";
-    kep.value = 1; //kep indexet tárolom
+
+    for(let i =1; i<41-1; i++)
+    {
+        var kep =document.createElement("img");
+        var pothely = document.getElementById("potHely");
+        if(i<24)
+        {
+            kep.src="../kartya/"+i+".png";
+        }
+        else if(i>23)
+        {
+            kep.src="../babuk/"+i+".png";
+        }
+        kep.style.width="200px";
+        kep.value = i;
+        kep.addEventListener("click",function(){
+            if(!kepKivalasztva && kepElhelyezve)
+            {
+                kepIndex = this.value;
+                kepKivalasztva = true;
+                this.style.visibility="hidden";
+                kepElhelyezve = false;
+            }
+        })
+        pothely.appendChild(kep);
+        
+    }
+
+     //kep indexet tárolom
     //kep.setAttribute("onclick","Kepkivalasztas(this)")
 
-    kep.addEventListener("click",function(){
-        if(!kepKivalasztva && kepElhelyezve)
-        {
-            kepIndex = this.value;
-            kepKivalasztva = true;
-            this.style.visibility="hidden";
-            kepElhelyezve = false;
-        }
-    })
 
-    var pothely = document.getElementById("potHely");
-    pothely.appendChild(kep);
+
+
+
 }
-
 function Main() {
 
     // console.log(kartyAdatok[0]);// "."+elem ami kell pl.: kartyaAdatok[0].value
@@ -173,10 +201,6 @@ cella =
 }
 cella.type -> vár
 cella.info.id -> 1
-
-
-
 cellak[i].type > 
 cellak[i].info.id ->1 
-
 */
