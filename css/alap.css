@@ -1,6 +1,6 @@
 #jatekter
 {
-    border: 1px solid #5C4033;
+    border: 5px solid #5C4033;
     width: 100%;
     height: 40vw;
     display: flex;
@@ -14,21 +14,18 @@
 }
 #kartyabox
 {
-    border: 1px solid #5C4033;
+    border: 5px solid #5C4033;
     width: 100%;
-    height: 20vw;
-    background-image: url(../hatterek/reachtate-og-image.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+    height: 19.45vw;
+    background-color: #5C4012;
 
 }
 
 #pontbox
 {
-    border: 1px solid #5C4033;
+    border: 5px solid #5C4033;
     width: 100%;
-    height: 20vw;
+    height: 19.5vw;
     background-image: url(../hatterek/ermearanycseh.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -60,7 +57,7 @@
 }
 .sordiv, .oszlopdiv
 {
-    border: 1px solid #5C4033;
+    border: 10px solid #5C4033;
     background-image: url(../hatterek/fű-3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,7 +66,7 @@
 
 img{
 
-    /*width : 100%; */
+    width : 100%;
     border: 10px;
 }
 
@@ -83,9 +80,9 @@ body
 
 #korbox
 {
-    border: 1px solid #5C4033 ;
+    border: 5px solid #5C4033 ;
     width: 19%;
-    height: 40.45vw;
+    height: 39.5vw;
     background-image: url(../hatterek/kicsitdagideammjo.png);
     background-repeat: no-repeat;
     background-size: cover;
