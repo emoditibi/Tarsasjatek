@@ -1,0 +1,145 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace menurendszer
+{
+    class Program
+    {
+        static double a, b;
+        static double eredmeny;
+        static bool szamMegadva = false;
+        static double[] random = new double[2];
+        
+
+        static void Main(string[] args)
+        {
+            MenuVezerles();
+        }
+
+        static void MenuVezerles()
+        {
+            string mp;
+            do
+            {
+                Console.Clear();
+                MenuSzoveg();
+                Console.Write("\nVálasszon egy menüpontot, majd nyomjon egy entert: ");
+                mp = Console.ReadLine();
+                switch (mp)
+                {
+                    case "1": Menupont1(); break;
+                    case "2": Menupont2(); break;
+                    case "3": Menupont3(); break;
+                    case "4": Menupont4(); break;
+                    case "0": Console.WriteLine("A program ki fog lépni. Nyomjon egy entert!"); break;
+                    default: Console.WriteLine("Hibás menüpontot adott meg!"); break;
+                }
+                Console.ReadLine();
+            } while (mp != "0");
+        }
+
+        static void Menupont1()
+        {
+            Console.Write("Adjon meg egy számot: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Adjon meg egy másik számot: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            szamMegadva = true;
+        }
+        static void Menupont2()
+        {
+            Console.Clear();
+            string mp;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\r\n                                                         \r\n __  __ _   ___     _______ _     _____ _____ _____ _  __\r\n|  \\/  | | | \\ \\   / | ____| |   | ____|_   _| ____| |/ /\r\n| |\\/| | | | |\\ \\ / /|  _| | |   |  _|   | | |  _| | ' / \r\n| |  | | |_| | \\ V / | |___| |___| |___  | | | |___| . \\ \r\n|_|  |_|\\___/   \\_/  |_____|_____|_____| |_| |_____|_|\\_\\\r\n                                                         \r\n");
+                Console.WriteLine("--0 ===> vissza--\n--1 ===> összeadás--\n--2 ===> kivonás--\n--3 ===> szorzás--\n--4 ===> osztás--\n");
+                mp = Console.ReadLine();
+                switch (mp)
+                {
+                    case "1": Osszeadas(); break;
+                    case "2": Kivonas(); break;
+                    case "3": Szorzas(); break;
+                    case "4": Osztas(); break;
+                    case "0": MenuVezerles(); break;
+                    default: Console.WriteLine("Hibás menüpontot adott meg!"); break;
+                }
+                
+                Console.ReadLine();
+            } while (mp != "0");
+
+        }
+        static void Osszeadas()
+        {
+            eredmeny = a + b;
+            Console.WriteLine("A két szám összege: {0}", eredmeny);
+        }
+        static void Kivonas()
+        {
+            eredmeny = a - b;
+            Console.WriteLine("A két szám összege: {0}", eredmeny);
+        }
+        static void Szorzas()
+        {
+            eredmeny = a * b;
+            Console.WriteLine("A két szám összege: {0}", eredmeny);
+        }
+        static void Osztas()
+        {
+            eredmeny = a / b;
+            Console.WriteLine("A két szám hányadosa: {0}", eredmeny);
+        }
+        static void Menupont3()
+        {
+            Console.Clear();
+            Console.WriteLine("\r\n                                                                                          \r\n __  __ _____ _  __   _____ _  __     _      _   _    _    ______   _____  ____  ____ ___ \r\n|  \\/  | ____| | \\ \\ / |_ _| |/ /    / \\    | \\ | |  / \\  / ___\\ \\ / / _ \\| __ )| __ |__ \\\r\n| |\\/| |  _| | |  \\ V / | || ' /    / _ \\   |  \\| | / _ \\| |  _ \\ V | | | |  _ \\|  _ \\ / /\r\n| |  | | |___| |___| |  | || . \\   / ___ \\  | |\\  |/ ___ | |_| | | || |_| | |_) | |_) |_| \r\n|_|  |_|_____|_____|_| |___|_|\\_\\ /_/   \\_\\ |_| \\_/_/   \\_\\____| |_| \\___/|____/|____/(_) \r\n                                                                                          \r\n");
+            if (a > b)
+            {
+                Console.WriteLine(a+" a nagyobbik szám.");
+            }
+            else if (a < b)
+            {
+                Console.WriteLine(b + " a nagyobbik szám.");
+            }
+            else if (a == b)
+            {
+                Console.WriteLine("A két szám egyenlő.");
+            }
+            else
+            {
+                Console.WriteLine("Hiba");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Visszalépéshez nyomjon egy Entert!");
+        }
+        static void Menupont4()
+        {
+            Console.Clear();
+            Console.WriteLine("\r\n                                                           \r\n  ____ _____ _   _ _____ ____     _    _        _    ____  \r\n / ___| ____| \\ | | ____|  _ \\   / \\  | |      / \\  / ___| \r\n| |  _|  _| |  \\| |  _| | |_) | / _ \\ | |     / _ \\ \\___ \\ \r\n| |_| | |___| |\\  | |___|  _ < / ___ \\| |___ / ___ \\ ___) |\r\n \\____|_____|_| \\_|_____|_| \\_/_/   \\_|_____/_/   \\_|____/ \r\n                                                           \r\n");
+            Random r = new Random();
+            int aconvert = Convert.ToInt32(a);
+            int bconvert = Convert.ToInt32(b);
+            for (int i = 0; i < random.Length; i++)
+            {
+                random[i] = r.Next(aconvert,bconvert);
+            }
+            Console.WriteLine();
+            Console.WriteLine("A visszalépéshez nyomjon Entert!");
+        }
+
+
+        static void MenuSzoveg()
+        {
+            Console.WriteLine("Menü");
+            Console.WriteLine("1. - Két szám megadása");
+            Console.WriteLine("2. - Művelet a számokkal");
+            Console.WriteLine("3. - Melyik a nagyobb?");
+            Console.WriteLine("4. - Generálás");
+            Console.WriteLine("0. - Kilépés");
+        }
+    }
+}
