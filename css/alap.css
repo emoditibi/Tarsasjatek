@@ -1,6 +1,6 @@
 #jatekter
 {
-    border: 5px solid #5C4033;
+    border: 1px solid black;
     width: 100%;
     height: 40vw;
     display: flex;
@@ -14,31 +14,43 @@
 }
 #kartyabox
 {
-    border: 5px solid #5C4033;
-    width: 100%;
-    height: 19.45vw;
-    background-color: #5C4012;
-
+    background-color: black;
+    border: 1px solid black;
+    width: 99.2%;
+    height: 20vw;
+    background-image: url(../hatterek/wp5145519.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+#kartyabox:hover
+{
+    border: 3px solid white;
+    opacity: 95%;
+   
 }
 
 #pontbox
 {
-    border: 5px solid #5C4033;
+    background-color: black;
+    border: 1px solid black;
     width: 100%;
-    height: 19.5vw;
-    background-image: url(../hatterek/ermearanycseh.png);
+    height: 20vw;
+    background-image: url(../hatterek/intro-1641579406.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #tabla
 {
-    border: 1px solid #5C4033;
-    width: 50%;
+    
+    border: 1px solid black;
+    width: 60%;
     height: 40vw;
     display: flex;
     flex-direction: column;
-    background-color: #5C4012;
+    background-color: black;
 }
 
 
@@ -47,6 +59,7 @@
     display: flex;
     flex-direction: row;
     height: 8vw;
+    
 }
 
 .oszlopdiv
@@ -54,11 +67,20 @@
     width: 16.6%;
     margin: 3px;
     
+    
 }
+.oszlopdiv:hover
+{
+    border: 5px solid white;
+    border-radius: 5p;
+    opacity: 70%;
+}
+
+
 .sordiv, .oszlopdiv
 {
-    border: 10px solid #5C4033;
-    background-image: url(../hatterek/fű-3.jpg);
+    border: 1px solid black;
+    background-image: url(../hatterek/rock-wall-1460778__340.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -66,13 +88,13 @@
 
 img{
 
-    width : 100%;
+    /*width : 100%; */
     border: 10px;
 }
 
 body
 {
-    background-image: url(../hatterek/hatter.jpg);
+    background-image: url(../hatterek/4279557.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -80,10 +102,11 @@ body
 
 #korbox
 {
-    border: 5px solid #5C4033 ;
-    width: 19%;
-    height: 39.5vw;
-    background-image: url(../hatterek/kicsitdagideammjo.png);
+    background-color: black;
+    border: 1px solid black;
+    width: 29%;
+    height: 40.45vw;
+    background-image: url(../hatterek/ff5a3c5836cb1e579130fba00581703c.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
