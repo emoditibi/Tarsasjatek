@@ -105,9 +105,62 @@ body
     background-color: black;
     border: 1px solid black;
     width: 29%;
-    height: 40.45vw;
+    height: 40vw;
     background-image: url(../hatterek/ff5a3c5836cb1e579130fba00581703c.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+#potHely
+{
+    border: 1px solid black;
+    background-image: url(../hatterek/kovesfalvarnak.png);
+    
+
+}
+.kep1
+{
+    border: 1px solid black;
+}
+.kep1:hover
+{
+    border: 2px solid white;
+    border-radius: 5p;
+    opacity: 80%;
+}
+#nev
+{
+    border: 1px solid black;
+    background-image: url(../hatterek/kovesfalvarnak.png);
+    height: 100px;
+    width: 100px;
+}
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 65px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #000000;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
