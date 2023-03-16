@@ -15,6 +15,11 @@ function Torol()
 console.log(objektum.szomszedok[0]);
 console.log(objektum.szam1);
 */
+console.log("\r\n   __ ______________  ______________________________  \r\n  / //_/ __/ __/_  / /  _/_  __/ __/_  __/_  __/ __/  \r\n / ,< / _/_\\ \\  / /__/ /  / / / _/  / /   / / / _/    \r\n/_/|_/___/___/ /___/___/ /_/ /___/ /_/   /_/ /___/    \r\n                                                      \r\n");
+console.log("\r\n   ___         _    __                ___       ___      __ \r\n  / _ )__ __  (_)__/ /__  ___ ___    / _ )___ _/ (_)__  / /_\r\n / _  / // / / / _  / _ \\(_-</ _ \\  / _  / _ `/ / / _ \\/ __/\r\n/____/\\_,_/_/ /\\_,_/\\___/___/\\___/ /____/\\_,_/_/_/_//_/\\__/ \r\n         |___/                                              \r\n");
+console.log("\r\n   ________\r\n  / __/ __/\r\n / _/_\\ \\  \r\n/___/___/  \r\n           \r\n");
+console.log("\r\n   ______  _______  ___  ____  _____________  ____  ___ \r\n  / __/  |/  / __ \\/ _ \\/  _/ /_  __/  _/ _ )/ __ \\/ _ \\\r\n / _// /|_/ / /_/ / // // /    / / _/ // _  / /_/ / , _/\r\n/___/_/  /_/\\____/____/___/   /_/ /___/____/\\____/_/|_| \r\n                                                        \r\n");
+
 var kartyAdatok = [
 
     { id: 1, value: -3, sign: '' },
@@ -77,6 +82,10 @@ var kepElhelyezve =true;
 var kepIndex;
 var jatekter = document.getElementById("jatekter");
 
+var varszamok = [];
+var vartemp = 0;
+var kepszam = 0;
+var korszamol = 0;
 
 
 function JatekterBetoltese() {
@@ -88,9 +97,9 @@ function JatekterBetoltese() {
     jatekter.appendChild(korBox);
 
 
-    kartyaBox.innerHTML = "kartya box";
+    
     pontBox.innerHTML = "pontok";
-    korBox.innerHTML = "kor";
+    
 
 }
 function JatekterElrendezese() {
@@ -102,6 +111,7 @@ function JatekterElrendezese() {
 }
 function Tablageneralasa() {
     var k = 0;
+    var pothely = document.getElementById("potHely");
     for (var i = 0; i < 5; i++) {
         var sordiv = document.createElement("div");
         sordiv.classList += " sordiv";
@@ -111,75 +121,174 @@ function Tablageneralasa() {
             oszlopdiv.classList += " oszlopdiv";
             oszlopdiv.id = k;
             k++;
-
-            //oszlopdiv.setAttribute("onclick","Kepkivalasztas(this)")
             oszlopdiv.addEventListener("click",function(){
                 if(kepKivalasztva && !kepElhelyezve)
                 {
                    
                     kepElhelyezve=true;
                     kepKivalasztva=false;
-                    var kep = document.createElement("img");
-                    if(kepIndex < 24)
-                    {
-                        kep.src="../kartya/"+kepIndex+".png";
-                    }
-                    else if(kepIndex >= 24)
-                    {
-                        kep.src="../babuk/"+kepIndex+".png";
-                    }
-                    
-                    
-                    this.appendChild(kep);
+                    var kep1 = document.createElement("img");
+                    kep1.src="../babuk/"+kepszam+".png";
+                    kep1.style.height="100%";
+                    kep1.style.width="100%";
+                    this.appendChild(kep1);
                     
                     
                 }
             })
-
+            //oszlopdiv.setAttribute("onclick","Kepkivalasztas(this)")
+            oszlopdiv.setAttribute("onclick","cellaRanyomsz(this)");
+            
             sordiv.appendChild(oszlopdiv);
 
         }
         tabla.appendChild(sordiv);
     }
+    
+    kartyaBox.setAttribute("onclick","kartyaBoxRanyom(this)");
+    
+    
+
 
 }
-function potHelyGeneralas(){
+/* */ 
+var ranyom;
+function kartyaBoxRanyom(){
+    ranyom = true;
+    console.log("teszt")
+}
 
-    for(let i =1; i<41-1; i++)
-    {
-        var kep =document.createElement("img");
-        var pothely = document.getElementById("potHely");
-        if(i<24)
-        {
-            kep.src="../kartya/"+i+".png";
+var temp = 0;
+var tombhely =0;
+var szamok = [];
+
+function cellaRanyomsz(div) {
+    if (ranyom && temp < 24) {
+        console.log(div);
+        var velkartyaszam = Math.floor(Math.random() * 23 + 1);
+        while (szamok.includes(velkartyaszam)) {
+            velkartyaszam = Math.floor(Math.random() * 23 + 1);
         }
-        else if(i>23)
-        {
-            kep.src="../babuk/"+i+".png";
-        }
-        kep.style.width="200px";
-        kep.value = i;
-        kep.addEventListener("click",function(){
-            if(!kepKivalasztva && kepElhelyezve)
-            {
-                kepIndex = this.value;
-                kepKivalasztva = true;
-                this.style.visibility="hidden";
-                kepElhelyezve = false;
-            }
-        })
-        pothely.appendChild(kep);
-        
+        szamok.push(velkartyaszam);
+        var img = document.createElement("img");
+        img.src = "../kartya/" + velkartyaszam + ".png";
+        img.style.height = "20px";
+        img.style.width = "20px";
+        img.value = velkartyaszam;
+        div.appendChild(img);
+        console.log(img)
+        var img2 = document.createElement("img");
+        korBox.innerHTML = "";
+        img2.src = "../kartya/" + velkartyaszam + ".png";
+        img.style.height = "100%";
+        img.style.width = "100%";
+        img2.style.height = "100px";
+        img2.style.width = "100px";
+        //---------------------------------------
+        var divo1 = document.createElement("div");
+        divo1.style.border = "1px solid black";
+        divo1.style.alignItems = "center";
+        var divo = document.createElement("div");
+        divo.style.border = "1px solid black";
+        divo.style.alignItems = "center";
+        var h1 = document.createElement("h1");
+        h1.style.color = "white";
+        h1.innerHTML = "A jelenlegi kör:";
+        h1.style.textAlign = "center";
+        var pjel = document.createElement("p");
+        pjel.style.color = "white";
+        pjel.innerHTML = "Legutoljára lerakott kártya:";
+        korBox.appendChild(divo);
+        divo.appendChild(h1);
+        divo.appendChild(divo1);
+        divo1.appendChild(pjel);
+        divo1.appendChild(img2);
+        div.setAttribute("onclick", "");
+        temp++;
+        korszamol++;
+        console.log(korszamol);
+        console.log(szamok);
     }
-
-     //kep indexet tárolom
-    //kep.setAttribute("onclick","Kepkivalasztas(this)")
-
-
-
-
+    ranyom = false;
 
 }
+function VarGen()
+{
+    //egy sztin 4 egyes szintu 3 kettesszintu harmas szint 2 negyes szintu 1
+    for(var i=0;i<10;i++)
+    {
+        
+        var hely = document.getElementById("potHely");
+        var velvarszam = Math.floor(Math.random()*16+1);
+        while (varszamok.includes(velvarszam)) {
+            velvarszam = Math.floor(Math.random() * 16 + 1);
+        }
+        varszamok.push(velvarszam);
+        var kep1 = document.createElement("img");
+        if(i <4)
+        {
+        kep1.src = "../babuk/"+1+".png";
+        kep1.className="kep1";
+        kep1.style.height="100px";
+        kep1.style.width="100px";
+        kep1.value = 1;
+        }
+        else if(i<7)
+        {
+        kep1.src = "../babuk/"+2+".png";
+        kep1.className="kep1";
+        kep1.style.height="100px";
+        kep1.style.width="100px";
+        kep1.value = 2;
+        }
+        else if(i < 9)
+        {
+        kep1.src = "../babuk/"+3+".png";
+        kep1.className="kep1";
+        kep1.style.height="100px";
+        kep1.style.width="100px";
+        kep1.value = 3;
+        }
+        else if(i = 10)
+        {
+        kep1.src = "../babuk/"+4+".png";
+        kep1.className="kep1";
+        kep1.style.height="100px";
+        kep1.style.width="100px";
+        kep1.value = 4;
+        }
+        
+        kep1.addEventListener("click",function(){
+        if(!kepKivalasztva && kepElhelyezve)
+        {
+            //kepIndex = varszamok[vartemp];
+            console.log(varszamok);
+            kepKivalasztva = true;
+            this.style.visibility="hidden";
+            kepElhelyezve = false;
+            kepszam = this.value;
+            korszamol++;
+            console.log(korszamol); 
+            
+        }
+        
+        })
+
+        hely.appendChild(kep1);
+    }
+    
+}
+
+function Korszamolas()
+{
+    if(korszamol == 30)
+    {
+
+    }
+}
+
+
+
 function Main() {
 
     // console.log(kartyAdatok[0]);// "."+elem ami kell pl.: kartyaAdatok[0].value
@@ -187,8 +296,9 @@ function Main() {
     JatekterBetoltese();
     JatekterElrendezese();
     Tablageneralasa();
-    potHelyGeneralas();
-
+    VarGen();
+    Korszamolas();
+    
 
 }
 
