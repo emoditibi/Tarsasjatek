@@ -288,6 +288,26 @@ function Korszamolas()
 }
 
 
+function penz() {
+    var img = document.createElement('img'); 
+    img.style.paddingTop = "20px";
+    img.style.height = "100px";
+    img.style.width = "100px";
+    img.value = 100;
+
+    if (img.value == 50) {
+        img.src = "../Penzek/50es.png";
+        pontBox.appendChild(img);   
+    } else if (img.value == 100) {
+        img.src = "../Penzek/50es.png";
+        for (let index = 0; index < 2; index++) {
+            var img2 = img.cloneNode(true); //--le klonozza es berakja
+            pontBox.appendChild(img2);
+        }
+    }
+}
+    
+    
 
 function Main() {
 
@@ -298,6 +318,7 @@ function Main() {
     Tablageneralasa();
     VarGen();
     Korszamolas();
+    penz();
     
 
 }
